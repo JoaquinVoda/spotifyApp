@@ -1,5 +1,12 @@
-<div class="consigna__container">
+<div class="consigna__container" ng-controller="resultsCtrl">
+
   <h2>ACA TIENEN QUE CARGAR UNA GRILLA CON LOS ARTISTAS QUE APARECIERON COMO RESULTADO DE LA BUSQUEDA ANTERIOR</h2>
+
+
+  <input type="text" class="inpsearch" placeholder="Type an Artist Name.." ng-model="resultsCtrl.artist"/>
+
+  <button class="btnsearch" ng-Click="resultsCtrl.getArtist()">Search</button>
+
   <img src="https://i.scdn.co/image/445ffa41207f321883fb01f406165801c7f41ef0" alt="">
   <h4>Cyndi Lauper</h4>
   <img src="https://i.scdn.co/image/6b86adfb6637e08f76390266b617120e95ad16c0" alt="">

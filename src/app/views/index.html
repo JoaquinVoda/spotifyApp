@@ -1,9 +1,19 @@
-<div class="consigna__container">
-  <h2>LA PRIMERA PAGINA DEBE MOSTRAS UN BUSCADOR Y COMO SOMOS BUENOS, YA LES DEJAMOS EL INPUT</h2>
-  <input type="text"/>
-  <button>Buscar</button>
-  <h3>FAVORITOS</h3>
-  <img src="https://i.scdn.co/image/66302ca80395b6be3600d5f0ef69db9e0c43f4f5" alt="">
-  <img src="https://i.scdn.co/image/e2b11f82ba8d5aecc6486fe28225db43a003caa1" alt="">
-  <img src="https://i.scdn.co/image/3a299e917835b053f53441280262f10829bd1c8e" alt="">
+<div class="consigna__container" ng-controller="indexCtrl">
+	<header class="header">
+		<h3 class="welcome">Welcome to</h3>		
+		<h2 class="logo">SpotiSearch</h2>
+		<h3 class="desc">Search your favourite songs over Spotify, just enter an artist's name in the
+			following search box and enjoy!</h3>
+	</header>
+
+	<input type="text" class="inpsearch" placeholder="Type an Artist Name.." ng-model="indexCtrl.artist"/>
+
+	<button class="btnsearch" ng-click="indexCtrl.getArtist()">Search</button>
+
+	<h3 class="fav">Favoritos</h3>
+
+	<img src="https://i.scdn.co/image/66302ca80395b6be3600d5f0ef69db9e0c43f4f5" alt="">
+	<img src="https://i.scdn.co/image/e2b11f82ba8d5aecc6486fe28225db43a003caa1" alt="">
+	<img src="https://i.scdn.co/image/3a299e917835b053f53441280262f10829bd1c8e" alt="">
+
 </div>
