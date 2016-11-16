@@ -8,8 +8,8 @@ import {albumCtrl} from './controllers/albumCtrl';
 angular
 	.module('App', ['ngRoute'])
     .config(routes)
-    .service('ApiService', ['$http', ApiService])
-    .controller('indexCtrl', ['$scope', 'ApiService', indexCtrl])
-    .controller('resultsCtrl', resultsCtrl)
-    .controller('bandCtrl', bandCtrl)
+    .service('ApiService', ['$http', '$routeParams', ApiService])
+    .controller('indexCtrl', ['$scope','$location', 'ApiService', indexCtrl])
+    .controller('resultsCtrl',['$scope','$location', 'ApiService', resultsCtrl])
+    .controller('bandCtrl', ['$scope', '$routeParams', 'ApiService', bandCtrl])
     .controller('albumCtrl', albumCtrl);

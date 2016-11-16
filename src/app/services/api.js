@@ -1,6 +1,20 @@
-export function ApiService($http) {
-    
-   
+export function ApiService($http, $routeParams) {
+		this.query;
+
+		this.search = function(){
+			return $http({
+				method: 'GET',
+				url: 'https://api.spotify.com/v1/search?q=' + this.query + '&type=artist&limit=10'
+			}).then(function(response){
+
+				return response.data.artists.items;
+
+			}, function(){
+				console.error('Call failed');
+
+			});
+
+		}
 
     	this.getArtists = function(name) {
     		return $http({
@@ -22,8 +36,8 @@ export function ApiService($http) {
     			method: 'GET',
     			url : 'https://api.spotify.com/v1/artists/' + $routeParams.bandId + '/albums'
     		}).then(function(response) {
-
-    			return response.data;
+                
+    			return response.data.items;
 
     		}, function(){
 

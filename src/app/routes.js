@@ -11,25 +11,25 @@ export function routes($routeProvider, $locationProvider) {
 	.when('/', {
 
 		templateUrl : "app/views/index.html"
-		// controller: indexCtrl
+		//controller: indexCtrl
 	})
 
-	.when('/album-detail', {
+	.when('/album-detail/:albumId', {
 
-		templateUrl : "app/views/album-detail.html"
-		// controller: albumCtrl
+		templateUrl : "/app/views/album-detail.html"
+		//controller: albumCtrl
 	})
 
 	.when('/band-albums/:bandId', {
 
 		templateUrl : "/app/views/band-albums.html"
-		// controller: bandCtrl
+		//controller: bandCtrl
 	})
 
 	.when('/results', {
 
 		templateUrl : "app/views/results.html"
-		// controller: resultsCtrl
+		//controller: resultsCtrl
 	})
 
 }
