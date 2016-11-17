@@ -31,10 +31,24 @@ export function ApiService($http, $routeParams) {
     	}
 
 
+        this.getAlbum = function(albumId) {
+            return $http({
+                method: 'GET',
+                url : 'https://api.spotify.com/v1/albums/' + albumId
+            }).then(function(response) {
+
+                return response.data;
+
+            }, function(){
+
+                console.error('Call failed');
+            })
+        }
+
     	this.getAlbums = function(bandId) {
     		return $http({
     			method: 'GET',
-    			url : 'https://api.spotify.com/v1/artists/' + $routeParams.bandId + '/albums'
+    			url : 'https://api.spotify.com/v1/artists/' + bandId + '/albums'
     		}).then(function(response) {
                 
     			return response.data.items;
@@ -46,20 +60,20 @@ export function ApiService($http, $routeParams) {
     		});
     	}
 
-    	// this.getAlbumTracks = function() {
-    	// 	return $http({
-    	// 		method: 'GET',
-    	// 		url : 'https://api.spotify.com/v1/albums/' + $routeParams.bandId + '/tracks'
-    	// 	}).then(function(response) {
+    	this.getAlbumTracks = function(albumId) {
+    		return $http({
+    			method: 'GET',
+    			url : 'https://api.spotify.com/v1/albums/' + albumId + '/tracks'
+    		}).then(function(response) {
+                console.log("s");
+    			return response.data.items;
 
-    	// 		return response.data.albums.tracks;
-
-    	// 	}, function() {
-    	// 		console.error('Call failed');
-    	// 	})
+    		}, function() {
+    			console.error('Call failed');
+    		});
 
 
-    	// }
+    	}
     
 
 }

@@ -10,26 +10,26 @@ export function routes($routeProvider, $locationProvider) {
     $routeProvider
 	.when('/', {
 
-		templateUrl : "app/views/index.html"
-		//controller: indexCtrl
+		templateUrl : "app/views/index.html",
+		controller: "indexCtrl"
 	})
 
 	.when('/album-detail/:albumId', {
 
-		templateUrl : "/app/views/album-detail.html"
-		//controller: albumCtrl
+		templateUrl : "/app/views/album-detail.html",
+		controller: "albumCtrl"
 	})
 
 	.when('/band-albums/:bandId', {
 
-		templateUrl : "/app/views/band-albums.html"
-		//controller: bandCtrl
+		templateUrl : "/app/views/band-albums.html",
+		controller: "bandCtrl"
 	})
 
 	.when('/results', {
 
-		templateUrl : "app/views/results.html"
-		//controller: resultsCtrl
+		templateUrl : "app/views/results.html",
+		controller: "resultsCtrl"
 	})
 
 }

@@ -1,22 +1,33 @@
-<div class="consigna__container" ng-controller="resultsCtrl">
+<div class="consigna__container" >
 
-  <h2>Currently searching: {{resultsCtrl.artist}}</h2>
+  <div class="row">
+	  <h2>Currently searching: "{{resultsCtrl.artist}}"</h2>
 
+	  <input type="text" class="inpsearch" placeholder="Type an Artist Name.." ng-model="resultsCtrl.artist"/>
 
+	  <button class="btnsearch" ng-Click="resultsCtrl.getArtists()">Search</button>
+  	
+  </div>
 
-  <input type="text" class="inpsearch" placeholder="Type an Artist Name.." ng-model="resultsCtrl.artist"/>
+  <div class="row">
+	  <div class="column third item-artist" ng-repeat="item in resultsCtrl.artists" ng-Click="resultsCtrl.goToAlbums(item)">
+	  	
+	  	<p> {{item.name}}</p>
+	  	<img src="{{item.images[0].url}}" height="100" width="100" alt=""/>
+	  
+	  </div>
+  	
+  </div>
 
-  <button class="btnsearch" ng-Click="resultsCtrl.getArtists()">Search</button>
-
-  <ul>
+ <!--  <ul>
   	<li ng-repeat="item in resultsCtrl.artists">
 
   		<a href="/band-albums/{{item.id}}">
   			{{item.name}}
-  			<img src="{{item.images[0].url}}" height="200" width="200" />
+  			<img src="{{item.images[0].url}}" height="200" width="200" alt="" />
   		</a>
 
   	</li>
   </ul>
-  
+ -->  
 </div>

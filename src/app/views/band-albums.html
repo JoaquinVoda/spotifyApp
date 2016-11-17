@@ -1,14 +1,28 @@
-<div class="band-detail-container" ng-controller="bandCtrl">
-	
-	<ul>
+<div class="band-detail-container" >
+		
+	<div class="row">
+		
+		<h1> Band Albums</h1>
+	</div>
+
+	<div class="row">
+		
+		<div class="column third" ng-repeat="item in bandCtrl.albums" ng-Click="bandCtrl.goToTracks(item)" >
+			<p>{{item.name}}</p>
+			<img src="{{item.images[0].url}}" height="100" width="100" alt="" />
+		</div>
+			
+	</div>
+
+	<!-- <ul>
 		<li ng-repeat="item in bandCtrl.albums">
 
 			<a href="/album-detail/{{item.id}}">
 				{{item.name}}
-				<img src="{{item.images[0].url}}" height="200" width="200" />
+				<img src="{{item.images[0].url}}" height="100" width="100" alt="" />
 			</a>
 
 		</li>
-	</ul>
+	</ul> -->
 	
 </div>

@@ -1,7 +1,73 @@
+.column{
+	float: left;
+	padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.row{
+	clear: both;
+	height: 30%;
+	padding: 20px;
+}
+
+@media screen and (min-width: 700px){
+	.column.full{
+		width: 100%;
+	}
+	.column.two-thirds{
+		width: 66.7%;
+	}
+	.column.half{
+		width: 50%;
+	}
+	.column.third{
+		width: 33.3%;
+	}
+	.column.fourth{
+		width: 25%;
+	}
+
+}
+
+@media screen and (max-width: 701px){
+	.column.full{
+		width: 100%;
+	}
+	.column.two-thirds{
+		width: 100%;
+	}
+	.column.half{
+		width: 100%;
+	}
+	.column.third{
+		width: 100%;
+	}
+	.column.fourth{
+		width: 100%;
+	}
+
+}
+
+.row>*{
+	float:left;
+}
+
 .consigna__container {
   width: 50%;
   margin-left: auto;
   margin-right: auto;
+}
+
+.band-detail-container{
+	width: 50%;
+  	margin-left: auto;
+  	margin-right: auto;
+}
+
+.album-detail-container{
+	width: 50%;
+  	margin-left: auto;
+  	margin-right: auto;
 }
 
 .header{
@@ -88,3 +154,9 @@
   background: #219e47;
   text-decoration: none;
 }
+
+.item-artist{
+	background-color: #C1C1C1;
+	border: 1px solid white; 
+}
+

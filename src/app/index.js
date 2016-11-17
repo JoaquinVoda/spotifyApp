@@ -10,6 +10,6 @@ angular
     .config(routes)
     .service('ApiService', ['$http', '$routeParams', ApiService])
     .controller('indexCtrl', ['$scope','$location', 'ApiService', indexCtrl])
-    .controller('resultsCtrl',['$scope','$location', 'ApiService', resultsCtrl])
-    .controller('bandCtrl', ['$scope', '$routeParams', 'ApiService', bandCtrl])
-    .controller('albumCtrl', albumCtrl);
+    .controller('resultsCtrl',['$scope','$location', '$routeParams', 'ApiService', resultsCtrl])
+    .controller('bandCtrl', ['$scope','$location', '$routeParams', 'ApiService', bandCtrl])
+    .controller('albumCtrl', ['$scope', '$location', '$routeParams', 'ApiService', albumCtrl]);

@@ -1,13 +1,17 @@
-export function bandCtrl($scope, $routeParams, ApiService){
+export function bandCtrl($scope, $location, $routeParams, ApiService){
 
 	$scope.bandCtrl = this;
 
 	ApiService.getAlbums($routeParams.bandId).then(function(response){
 
 		this.albums = response;
-		console.log($scope.bandCtrl.albums);
 
-	}.bind(this))
+	}.bind(this));
 
+	this.goToTracks = function(album){
+		
+		$location.path('/album-detail/' + album.id);
+		
+	}.bind(this);
 	
 }

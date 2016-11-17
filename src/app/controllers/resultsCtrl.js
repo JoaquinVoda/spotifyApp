@@ -1,9 +1,10 @@
-export function resultsCtrl($scope, $location, ApiService){
+export function resultsCtrl($scope, $location, $routeParams, ApiService){
 
 	$scope.resultsCtrl = this;
 
 	ApiService.search().then(function(response){
 
+		this.artist = ApiService.query;
 		this.artists=response;
 		
 	}.bind(this))
@@ -14,8 +15,13 @@ export function resultsCtrl($scope, $location, ApiService){
 		.then(function(response){
 
 			this.artists=response;
-			console.log(this.artists);
 
 		}.bind(this))
-	}	
+	}
+
+	this.goToAlbums = function(band){
+
+		$location.path('/band-albums/' + band.id);
+		
+	}.bind(this)	
 }
