@@ -1,7 +1,6 @@
 export function albumCtrl($scope, $location, $routeParams, ApiService){
 	
 	$scope.albumCtrl = this;
-	console.log("a");
 
 	ApiService.getAlbum($routeParams.albumId).then(function(response){
 		
