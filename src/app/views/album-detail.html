@@ -2,8 +2,8 @@
 
     <div class="row">
 
-        <img src="{{albumCtrl.album.images[0].url}}" height="100" width="100" alt="">
         <h2 class="album_artista">{{albumCtrl.album.artists[0].name}}</h2>
+        <img src="{{albumCtrl.album.images[0].url}}" height="100" width="100" alt="">
         <h3 class="album_nombre">{{albumCtrl.album.name}}</h3>
 
     </div>
@@ -11,8 +11,13 @@
     <div class="row">
 
         <ul class="album_tracks">
-            <li ng-repeat="item in albumCtrl.tracks">{{item.name}}</li>
-            <i class="fa fa-star-o" aria-hidden="true"></i>
+            <li ng-repeat="item in albumCtrl.tracks">
+                {{item.name}}
+                <audio class="audio_song" ng-src="{{item.preview_url}}" controls>
+                </audio>
+
+                <i ng-class="[ { 'fa fa-star-o' : !albumCtrl.isFav(item.id) , 'fa fa-star' : albumCtrl.isFav(item.id) } ]" aria-hidden="true" ng-click="albumCtrl.favTrack(item)"></i>
+            </li>
             
         </ul>
     </div>

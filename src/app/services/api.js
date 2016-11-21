@@ -65,7 +65,6 @@ export function ApiService($http, $routeParams) {
     			method: 'GET',
     			url : 'https://api.spotify.com/v1/albums/' + albumId + '/tracks'
     		}).then(function(response) {
-                console.log("s");
     			return response.data.items;
 
     		}, function() {
@@ -75,5 +74,17 @@ export function ApiService($http, $routeParams) {
 
     	}
     
+        // this.getAudioTracks = function (ids) {
+        //     return $http({
+        //         method: 'GET',
+        //         url: 'https://api.spotify.com/v1/audio-features?ids=' + ids
+        //     }).then(function(response) {
+
+        //         return response.data.items;
+
+        //     }, function(){
+        //         console.error('Call failed');
+        //     })
+        // }
 
 }

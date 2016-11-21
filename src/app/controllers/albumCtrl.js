@@ -1,4 +1,4 @@
-export function albumCtrl($scope, $location, $routeParams, ApiService){
+export function albumCtrl($scope, $location, $routeParams, ApiService, StarService){
 	
 	$scope.albumCtrl = this;
 
@@ -12,9 +12,15 @@ export function albumCtrl($scope, $location, $routeParams, ApiService){
 	ApiService.getAlbumTracks($routeParams.albumId).then(function(response){
 
 		this.tracks = response;
-		console.log(this.tracks);
 
 	}.bind(this));
 
-	
+	this.favTrack = function(track){
+		StarService.changeFav(track);
+	}
+
+	this.isFav = function(id){
+		return StarService.getFav(id);
+	}
+
 }
