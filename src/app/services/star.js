@@ -25,8 +25,9 @@ export function StarService($localStorage){
 		return false;
 	}
 
-	this.getAll = function(){
+	this.getAllFavs = function(){
 
+		return $localStorage.tracks;
 	}
 
 }

@@ -1,4 +1,13 @@
-<div class="band-detail-container" >
+<div class="band-detail-container">
+	<div class="row">
+	    <header class="header">
+	     <!--  <img class="logo" src="/Spotify_logo_without_text"> -->
+
+	            <input type="text" class="inpsearch" placeholder="Type an Artist Name.." ng-model="bandCtrl.artist" />
+	            <button class="btnsearch" ng-Click="bandCtrl.getArtists()">Search</button>
+	            
+	    </header>
+	  </div>
 		
 	<div class="row">
 		
@@ -7,22 +16,13 @@
 
 	<div class="row">
 		
-		<div class="column third" ng-repeat="item in bandCtrl.albums" ng-Click="bandCtrl.goToTracks(item)" >
+		<div class="column half band-album" ng-repeat="item in bandCtrl.albums" ng-Click="bandCtrl.goToTracks(item)">
+
 			<p>{{item.name}}</p>
 			<img src="{{item.images[0].url}}" height="100" width="100" alt="" />
+
 		</div>
 			
 	</div>
-
-	<!-- <ul>
-		<li ng-repeat="item in bandCtrl.albums">
-
-			<a href="/album-detail/{{item.id}}">
-				{{item.name}}
-				<img src="{{item.images[0].url}}" height="100" width="100" alt="" />
-			</a>
-
-		</li>
-	</ul> -->
 	
 </div>

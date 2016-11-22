@@ -4,8 +4,7 @@ export function albumCtrl($scope, $location, $routeParams, ApiService, StarServi
 
 	ApiService.getAlbum($routeParams.albumId).then(function(response){
 		
-		this.album = response;
-		console.log(this.album);	
+		this.album = response;	
 
 	}.bind(this));
 
@@ -23,4 +22,9 @@ export function albumCtrl($scope, $location, $routeParams, ApiService, StarServi
 		return StarService.getFav(id);
 	}
 
+	this.getArtists = function(){
+
+		$location.path('/results');
+		ApiService.query = $scope.albumCtrl.artist;
+	}
 }

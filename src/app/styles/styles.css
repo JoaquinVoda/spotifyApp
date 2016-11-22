@@ -160,6 +160,11 @@
 	border: 1px solid white; 
 }
 
+.band-album{
+	background-color: #C1C1C1;
+	border: 1px solid white; 
+}
+
 .album_artista{
 	font-family: helvetica;
 }
@@ -170,7 +175,8 @@
 }
 
 .album_tracks{
+	float: left;
 	font-family: Helvetica;
 	font-size: 12px;
-	
+		
 }

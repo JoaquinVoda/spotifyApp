@@ -74,17 +74,17 @@ export function ApiService($http, $routeParams) {
 
     	}
     
-        // this.getAudioTracks = function (ids) {
-        //     return $http({
-        //         method: 'GET',
-        //         url: 'https://api.spotify.com/v1/audio-features?ids=' + ids
-        //     }).then(function(response) {
+        this.getFavsTracks = function(ids) {
+            return $http({
+                method: 'GET',
+                url: 'https://api.spotify.com/v1/tracks/?ids=' + ids
+            }).then(function(response) {
 
-        //         return response.data.items;
+                return response.data.tracks;
 
-        //     }, function(){
-        //         console.error('Call failed');
-        //     })
-        // }
+            }, function() {
+                console.error('Call failed');
+            });
+        }
 
 }

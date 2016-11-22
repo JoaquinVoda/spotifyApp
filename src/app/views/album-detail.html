@@ -1,5 +1,14 @@
 <div class="album-detail-container" >
+    <div class="row">
+        <header class="header">
 
+           <!--  <img class="logo" src="/Spotify_logo_without_text"> -->
+
+            <input type="text" class="inpsearch" placeholder="Type an Artist Name.." ng-model="albumCtrl.artist" />
+            <button class="btnsearch" ng-Click="albumCtrl.getArtists()">Search</button>
+        </header>
+
+    </div>
     <div class="row">
 
         <h2 class="album_artista">{{albumCtrl.album.artists[0].name}}</h2>
@@ -10,16 +19,18 @@
 
     <div class="row">
 
-        <ul class="album_tracks">
-            <li ng-repeat="item in albumCtrl.tracks">
+        <table class="album_tracks" border="1">
+            <tr ng-repeat="item in albumCtrl.tracks">
+                <td>
+                    
                 {{item.name}}
-                <audio class="audio_song" ng-src="{{item.preview_url}}" controls>
-                </audio>
-
+                <audio ng-src="{{item.preview_url}}" controls></audio>
                 <i ng-class="[ { 'fa fa-star-o' : !albumCtrl.isFav(item.id) , 'fa fa-star' : albumCtrl.isFav(item.id) } ]" aria-hidden="true" ng-click="albumCtrl.favTrack(item)"></i>
-            </li>
+
+                </td>
+            </tr>
             
-        </ul>
+        </table>
     </div>
     
 </div>
