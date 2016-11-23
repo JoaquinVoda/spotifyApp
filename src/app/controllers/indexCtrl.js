@@ -1,12 +1,12 @@
-export function indexCtrl($scope, $location, ApiService, StarService) {
+export function indexCtrl($scope, $location, $routeParams, ApiService, StarService) {
 	
 	$scope.indexCtrl = this;
 
 	this.ids = new Array();
 	this.favtracks = new Array ();
 
-	this.tracks = StarService.getAllFavs();
-
+	this.tracks = StarService.getAllFavs() || [];
+	
 	for (var i = 0; i < this.tracks.length ; i++) {
 		this.ids.push(this.tracks[i].id);
 	}
@@ -17,10 +17,9 @@ export function indexCtrl($scope, $location, ApiService, StarService) {
 	});
 	
 
-	this.getArtists = function(){
+	this.getArtists = function(artist){
 
-		$location.path('/results');
-		ApiService.query = $scope.indexCtrl.artist;
+		$location.path('/results/' + artist);
 	}
 
 	this.favTrack = function(track){

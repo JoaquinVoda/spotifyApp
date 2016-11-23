@@ -1,23 +1,29 @@
 <div class="consigna__container" >
+
   <div class="row">
-    <header class="header">
 
-      <img class="logo" src="C:\Users\joaquin.voda\Desktop\Repo\spotifyApp\src\app\images\Spotify_logo_without_text">
+    <div class="column full">
 
-    </header>
+      <header class="header-logo">
+
+        <img class="logo" src="/app/Spotify_logo_without_text.png" height="70" width="70" ng-click="resultsCtrl.goToHome()">
+
+        <input type="text" class="inpsearch" placeholder="Type an Artist Name.." ng-model="resultsCtrl.artist"/>
+
+        <button class="btnsearch" ng-Click="resultsCtrl.getArtists(resultsCtrl.artist)">Search</button>
+
+      </header>
+
+
+      <h2>Currently searching: "{{resultsCtrl.artist}}"</h2>
+      
+    </div>
   </div>
 
   <div class="row">
-	  <h2>Currently searching: "{{resultsCtrl.artist}}"</h2>
 
-	  <input type="text" class="inpsearch" placeholder="Type an Artist Name.." ng-model="resultsCtrl.artist"/>
 
-	  <button class="btnsearch" ng-Click="resultsCtrl.getArtists()">Search</button>
-  	
-  </div>
-
-  <div class="row">
-	  <div class="column third item-artist" ng-repeat="item in resultsCtrl.artists" ng-Click="resultsCtrl.goToAlbums(item)">
+	    <div class="column third item-artist" ng-repeat="item in resultsCtrl.artists" ng-Click="resultsCtrl.goToAlbums(item)">
 	  	
 	  	<p> {{item.name}}</p>
 	  	<img src="{{item.images[0].url}}" height="100" width="100" alt=""/>

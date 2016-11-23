@@ -17,6 +17,7 @@ export function StarService($localStorage){
 
 	this.getFav = function(id){
 
+		$localStorage.tracks = $localStorage.tracks || [];
 		for (var i = 0; i <= $localStorage.tracks.length-1; i++) {
 			if ($localStorage.tracks[i].id === id) {
 				return true;

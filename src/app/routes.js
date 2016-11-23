@@ -31,9 +31,9 @@ export function routes($routeProvider, $locationProvider, $sceDelegateProvider) 
 		controller: "bandCtrl"
 	})
 
-	.when('/results', {
+	.when('/results/:artist', {
 
-		templateUrl : "app/views/results.html",
+		templateUrl : "/app/views/results.html",
 		controller: "resultsCtrl"
 	})
 

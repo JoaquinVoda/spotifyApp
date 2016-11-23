@@ -1,42 +1,47 @@
 <div class="consigna__container" >
 	
 	<div class="row">
-	<header class="header">
-		<h3 class="welcome">Welcome to</h3>		
-		<h2 class="logo">SpotiSearch</h2>
-		<h3 class="desc">Search your favourite songs over Spotify, just enter an artist's name in the
-			following search box and enjoy!</h3>
-	</header>
+		<div class="column full">
+			
+			<header class="header">
+				<h3 class="welcome">Welcome to</h3>		
+				<h2 class="logo">SpotiSearch</h2>
+				<h3 class="desc">Search your favourite songs over Spotify, just enter an artist's name in the
+					following search box and enjoy!</h3>
+			</header>
+
+
+			<input type="text" class="inpsearch" placeholder="Type an Artist Name.." ng-model="indexCtrl.artist"/>
+
+			<button class="btnsearch" ng-click="indexCtrl.getArtists(indexCtrl.artist)">Search</button>
+		</div>
+
 	</div>
-
-	<div class="row">
-	
-		<input type="text" class="inpsearch" placeholder="Type an Artist Name.." ng-model="indexCtrl.artist"/>
-
-		<button class="btnsearch" ng-click="indexCtrl.getArtists()">Search</button>
-
-	</div>
-
-	<div class="row">
-		<h3 class="fav">Favourite Songs</h3>
 
 	
 	</div>
 
 	<div class="row">
+
+		<div class="column full favs">
+
+			<h3 class="fav">Favourite Songs</h3>
+			
+			<table class="fav-tracks" border="1">
+
+				<tr ng-repeat="track in indexCtrl.favtracks">
+					<td>
+						
+					<img src="{{track.album.images[0].url}}" width="150" height="150">
+					{{track.name}}
+					</td>
+
+				</tr>
+
+			</table>
+
+		</div>
 		
-		<table border="1">
-
-			<tr ng-repeat="track in indexCtrl.favtracks">
-				<td>
-					
-				<img src="{{track.album.images[0].url}}" width="150" height="150">
-				{{track.name}}
-				</td>
-
-			</tr>
-
-		</table>
 
 	</div>
 </div>

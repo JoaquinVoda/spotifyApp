@@ -165,6 +165,20 @@
 	border: 1px solid white; 
 }
 
+.favs{
+	text-align: center;
+}
+
+.fav-tracks{
+	width: 70%;
+	margin-left: 15%;
+	margin-right: 15%;
+	text-align: left;
+	font-family: helvetica;
+	font-size: 20px
+
+}
+
 .album_artista{
 	font-family: helvetica;
 }
@@ -179,4 +193,32 @@
 	font-family: Helvetica;
 	font-size: 12px;
 		
+}
+
+.album-desc{
+	width: 50%;
+	margin-left: 25%;
+	margin-right: 25%;
+}
+
+.header-logo{
+	background-color: #F2F9FC;
+}
+
+.header-logo .logo{
+	align-self: center;
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	cursor: pointer;
+}
+
+.header-logo .inpsearch {
+	clear: both;
+}
+
+.barra{
+	margin-right: auto;
+	margin-left: auto;
+	display: block;
 }

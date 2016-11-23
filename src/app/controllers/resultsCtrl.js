@@ -1,27 +1,30 @@
 export function resultsCtrl($scope, $location, $routeParams, ApiService){
 
 	$scope.resultsCtrl = this;
+	this.artist = $routeParams.artist;
 
-	ApiService.search().then(function(response){
+	ApiService.getArtists($routeParams.artist)
+	.then(function(response){
 
-		this.artist = ApiService.query;
 		this.artists=response;
 		
 	}.bind(this))
 
-	this.getArtists = function(){
+	this.getArtists = function(artist){
 
-		ApiService.getArtists($scope.resultsCtrl.artist)
-		.then(function(response){
+		$location.path('/results/' + artist);
 
-			this.artists=response;
-
-		}.bind(this))
-	}
+	}.bind(this)
 
 	this.goToAlbums = function(band){
 
 		$location.path('/band-albums/' + band.id);
 		
-	}.bind(this)	
+	}.bind(this)
+
+	this.goToHome = function(){
+		
+		$location.path('/');
+
+	}	
 }

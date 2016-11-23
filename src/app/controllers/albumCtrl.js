@@ -11,6 +11,7 @@ export function albumCtrl($scope, $location, $routeParams, ApiService, StarServi
 	ApiService.getAlbumTracks($routeParams.albumId).then(function(response){
 
 		this.tracks = response;
+		console.log(this.tracks);
 
 	}.bind(this));
 
@@ -22,9 +23,23 @@ export function albumCtrl($scope, $location, $routeParams, ApiService, StarServi
 		return StarService.getFav(id);
 	}
 
-	this.getArtists = function(){
+	this.getArtists = function(artist){
 
-		$location.path('/results');
-		ApiService.query = $scope.albumCtrl.artist;
+		$location.path('/results/' + artist);
 	}
-}
+
+	this.goToHome = function(){
+
+		$location.path('/');
+
+	}
+
+	this.sortAsc = function(){
+		this.tracks = ApiService.sortByDurationAsc(this.tracks);
+	}
+
+	this.sortDesc = function(){
+		this.tracks = ApiService.sortByDurationDesc(this.tracks);
+	}
+
+}	

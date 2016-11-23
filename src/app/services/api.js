@@ -1,27 +1,12 @@
 export function ApiService($http, $routeParams) {
-		this.query;
-
-		this.search = function(){
-			return $http({
-				method: 'GET',
-				url: 'https://api.spotify.com/v1/search?q=' + this.query + '&type=artist&limit=10'
-			}).then(function(response){
-
-				return response.data.artists.items;
-
-			}, function(){
-				console.error('Call failed');
-
-			});
-
-		}
+		
 
     	this.getArtists = function(name) {
     		return $http({
     			method: 'GET',
     			url : 'https://api.spotify.com/v1/search?q=' + name + '&type=artist&limit=10' 
     		}).then(function(response){
-
+                
     			return response.data.artists.items;
 
     		}, function(){
@@ -85,6 +70,34 @@ export function ApiService($http, $routeParams) {
             }, function() {
                 console.error('Call failed');
             });
+        }
+
+        this.sortByDurationAsc = function(tracks){
+           return tracks.sort(compareAsc);
+        }
+
+        this.sortByDurationDesc = function(tracks){
+            return tracks.sort(compareDesc);
+        }
+
+        function compareAsc(a,b){
+            if (a.duration_ms > b.duration_ms) {
+                return -1;
+            }
+            if (a.duration_ms < b.duration_ms) {
+                return 1;
+            }
+            return 0;
+        }
+
+        function compareDesc(a ,b){
+            if (a.duration_ms < b.duration_ms) {
+                return -1;
+            }
+            if (a.duration_ms > b.duration_ms) {
+                return 1;
+            }
+            return 0;
         }
 
 }

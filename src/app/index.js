@@ -12,7 +12,7 @@ angular
     .config(routes)
     .service('ApiService', ['$http', '$routeParams', ApiService])
     .service('StarService',['$localStorage', StarService])
-    .controller('indexCtrl', ['$scope','$location', 'ApiService', 'StarService', indexCtrl])
+    .controller('indexCtrl', ['$scope','$location', '$routeParams', 'ApiService', 'StarService', indexCtrl])
     .controller('resultsCtrl',['$scope','$location', '$routeParams', 'ApiService', resultsCtrl])
     .controller('bandCtrl', ['$scope','$location', '$routeParams', 'ApiService', bandCtrl])
     .controller('albumCtrl', ['$scope', '$location', '$routeParams', 'ApiService', 'StarService', albumCtrl]);

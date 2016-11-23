@@ -1,36 +1,55 @@
 <div class="album-detail-container" >
     <div class="row">
-        <header class="header">
 
-           <!--  <img class="logo" src="/Spotify_logo_without_text"> -->
-
-            <input type="text" class="inpsearch" placeholder="Type an Artist Name.." ng-model="albumCtrl.artist" />
-            <button class="btnsearch" ng-Click="albumCtrl.getArtists()">Search</button>
-        </header>
-
-    </div>
-    <div class="row">
-
-        <h2 class="album_artista">{{albumCtrl.album.artists[0].name}}</h2>
-        <img src="{{albumCtrl.album.images[0].url}}" height="100" width="100" alt="">
-        <h3 class="album_nombre">{{albumCtrl.album.name}}</h3>
-
-    </div>
-
-    <div class="row">
-
-        <table class="album_tracks" border="1">
-            <tr ng-repeat="item in albumCtrl.tracks">
-                <td>
-                    
-                {{item.name}}
-                <audio ng-src="{{item.preview_url}}" controls></audio>
-                <i ng-class="[ { 'fa fa-star-o' : !albumCtrl.isFav(item.id) , 'fa fa-star' : albumCtrl.isFav(item.id) } ]" aria-hidden="true" ng-click="albumCtrl.favTrack(item)"></i>
-
-                </td>
-            </tr>
+        <div class="column full">
             
-        </table>
+            <header class="header-logo">
+
+                <img class="logo" src="/app/Spotify_logo_without_text.png" height="70" width="70" ng-click="albumCtrl.goToHome()">
+                <div class="barra">
+                    
+                    <input type="text" class="inpsearch" placeholder="Type an Artist Name.." ng-model="albumCtrl.artist" />
+
+                    <button class="btnsearch" ng-Click="albumCtrl.getArtists(albumCtrl.artist)">Search</button>
+                </div>
+
+            </header>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="column half album-desc">
+
+            <h2 class="album_artista">{{albumCtrl.album.artists[0].name}}</h2>
+            <img src="{{albumCtrl.album.images[0].url}}" height="100" width="100" alt="">
+            <h3 class="album_nombre">{{albumCtrl.album.name}}</h3>
+            
+        </div>
+
+
+    </div>
+
+    <div class="row">
+        <div class="column full tracks">
+            Sort by duration
+            <button class="sort-asc" ng-click="albumCtrl.sortAsc()"> Asc</button>
+            <button class="sort-desc" ng-click="albumCtrl.sortDesc()"> Desc</button>
+            
+            <table class="album-tracks" border="1">
+                <tr ng-repeat="item in albumCtrl.tracks">
+                    <td>
+                        
+                    {{item.name}}
+                    <audio ng-src="{{item.preview_url}}" controls></audio>
+                    <i ng-class="[ { 'fa fa-star-o' : !albumCtrl.isFav(item.id) , 'fa fa-star' : albumCtrl.isFav(item.id) } ]" aria-hidden="true" ng-click="albumCtrl.favTrack(item)"></i>
+
+                    </td>
+                </tr>
+                
+            </table>
+
+        </div>
+
     </div>
     
 </div>
