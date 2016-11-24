@@ -15,6 +15,19 @@ export function ApiService($http, $routeParams) {
     		});
     	}
 
+        this.getArtistById = function(id) {
+            return $http({
+                method: 'GET',
+                url: 'https://api.spotify.com/v1/artists/' + id
+            }).then(function(response){
+
+                return response.data;
+
+            }, function(){
+                console.error('Call failed');
+            });
+        }
+
 
         this.getAlbum = function(albumId) {
             return $http({

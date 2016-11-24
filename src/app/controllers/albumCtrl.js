@@ -11,7 +11,6 @@ export function albumCtrl($scope, $location, $routeParams, ApiService, StarServi
 	ApiService.getAlbumTracks($routeParams.albumId).then(function(response){
 
 		this.tracks = response;
-		console.log(this.tracks);
 
 	}.bind(this));
 

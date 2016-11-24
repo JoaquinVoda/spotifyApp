@@ -1,7 +1,8 @@
-<div class="consigna__container" >
+<div class="container" >
 	
-	<div class="row">
-		<div class="column full">
+	<div class="column">
+
+		<div class="row">
 			
 			<header class="header">
 				<h3 class="welcome">Welcome to</h3>		
@@ -10,38 +11,33 @@
 					following search box and enjoy!</h3>
 			</header>
 
-
-			<input type="text" class="inpsearch" placeholder="Type an Artist Name.." ng-model="indexCtrl.artist"/>
-
-			<button class="btnsearch" ng-click="indexCtrl.getArtists(indexCtrl.artist)">Search</button>
 		</div>
 
-	</div>
+		<div class="row">
 
-	
-	</div>
+			<div class="input">
+				
+				<input type="text" class="inpsearch" placeholder="Type an Artist Name.." ng-model="indexCtrl.artist"/>
 
-	<div class="row">
-
-		<div class="column full favs">
-
-			<h3 class="fav">Favourite Songs</h3>
+				<button class="btnsearch" ng-click="indexCtrl.getArtists(indexCtrl.artist)">Search</button>
 			
-			<table class="fav-tracks" border="1">
+			</div>
+		</div>
 
-				<tr ng-repeat="track in indexCtrl.favtracks">
-					<td>
-						
-					<img src="{{track.album.images[0].url}}" width="150" height="150">
-					{{track.name}}
-					</td>
+		<div class="row favs">
+			
+			<h3 class="fav">Favorite Songs</h3>
 
-				</tr>
+			<div class="fav-tracks" ng-repeat="track in indexCtrl.favtracks">
+							
+				<img class="fav-img" src="{{track.album.images[0].url}}">
+				<p class="fav-name">{{track.name}}</p>
 
-			</table>
+			</div>
 
 		</div>
 		
 
 	</div>
+
 </div>
