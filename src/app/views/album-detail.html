@@ -1,55 +1,66 @@
-<div class="container" >
+<div class="container">
+    
     <div class="row">
 
-        <div class="column full">
-            
-            <header class="header-logo">
+        <header class="header-logo">
 
-                <img class="logo" src="/app/Spotify_logo_without_text.png" height="70" width="70" ng-click="albumCtrl.goToHome()">
-                <div class="barra">
-                    
-                    <input type="text" class="inpsearch" placeholder="Type an Artist Name.." ng-model="albumCtrl.artist" />
+            <img class="logo" src="/app/Spotify_logo_without_text.png" height="70" width="70" ng-click="albumCtrl.goToHome()">
+            <div class="input">
 
-                    <button class="btnsearch" ng-Click="albumCtrl.getArtists(albumCtrl.artist)">Search</button>
-                </div>
+                <input type="text" class="inpsearch" placeholder="Type an Artist Name.." ng-model="albumCtrl.artist" />
+
+                <button class="btnsearch" ng-Click="albumCtrl.getArtists(albumCtrl.artist)">Search</button>
+            </div>
 
             </header>
-        </div>
-
-    </div>
-    <div class="row">
-        <div class="column half album-desc">
-
-            <h2 class="album_artista">{{albumCtrl.album.artists[0].name}}</h2>
-            <img src="{{albumCtrl.album.images[0].url}}" height="100" width="100" alt="">
-            <h3 class="album_nombre">{{albumCtrl.album.name}} - {{albumCtrl.album.release_date | date:'yyyy'}}</h3>
-            
-        </div>
-
-
     </div>
 
-    <div class="row">
-        <div class="column full tracks">
-            Sort by duration
-            <button class="sort-asc" ng-click="albumCtrl.sortAsc()"> Asc</button>
-            <button class="sort-desc" ng-click="albumCtrl.sortDesc()"> Desc</button>
-            
-            <table class="album-tracks" border="1">
-                <tr ng-repeat="item in albumCtrl.tracks">
-                    <td>
-                     <audio ng-src="{{item.preview_url}}" controls></audio>   
-                    {{item.name}}
-                    
-                    <i ng-class="[ { 'fa fa-star-o' : !albumCtrl.isFav(item.id) , 'fa fa-star' : albumCtrl.isFav(item.id) } ]" aria-hidden="true" ng-click="albumCtrl.favTrack(item)"></i>
+    <div class="column">
 
-                    </td>
-                </tr>
+        
+
+        <div class="row">
+
+            <div class="desc">
+
                 
-            </table>
+                <img src="{{albumCtrl.album.images[0].url}}" height="100" width="100" alt="">
+                <h2 class="album_artista">{{albumCtrl.album.artists[0].name}}</h2>
+                <h3 class="album_nombre">{{albumCtrl.album.name}} - {{albumCtrl.album.release_date | date:'yyyy'}}</h3>
+
+            </div>
+
 
         </div>
 
-    </div>
-    
+        <div class="row items">
+
+            
+
+                <p>Sort by duration</p>
+                <button class="sort-asc" ng-click="albumCtrl.sortAsc()"> Asc</button>
+                <button class="sort-desc" ng-click="albumCtrl.sortDesc()"> Desc</button>
+
+                <table class="album-tracks" border="1">
+                    <tr>
+                        <th colspan="1">CD 1</th>
+                    </tr>
+                    <tr ng-repeat="item in albumCtrl.tracks">
+                        <td>
+                           <audio ng-src="{{item.preview_url}}" controls></audio>   
+                           {{item.name}}
+
+                           <i ng-class="[ { 'fa fa-star-o' : !albumCtrl.isFav(item.id) , 'fa fa-star' : albumCtrl.isFav(item.id) } ]" aria-hidden="true" ng-click="albumCtrl.favTrack(item)">
+                           </i>
+
+                       </td>
+                   </tr>
+
+               </table>
+
+
+       </div>
+
+   </div>
+
 </div>

@@ -1,4 +1,11 @@
 <div class="container" >
+	<div class="row">
+		<header class="header-logo">
+
+      		<img class="logo" src="/app/Spotify_logo_without_text.png" >
+
+    	</header>
+	</div>
 	
 	<div class="column">
 
@@ -7,7 +14,7 @@
 			<header class="header">
 				<h3 class="welcome">Welcome to</h3>		
 				<h2 class="logo">SpotiSearch</h2>
-				<h3 class="desc">Search your favourite songs over Spotify, just enter an artist's name in the
+				<h3 class="info">Search your favourite songs over Spotify, just enter an artist's name in the
 					following search box and enjoy!</h3>
 			</header>
 
@@ -24,13 +31,13 @@
 			</div>
 		</div>
 
-		<div class="row favs">
+		<div class="row items">
 			
 			<h3 class="fav">Favorite Songs</h3>
 
-			<div class="fav-tracks" ng-repeat="track in indexCtrl.favtracks">
+			<div class="item" ng-repeat="track in indexCtrl.favtracks">
 							
-				<img class="fav-img" src="{{track.album.images[0].url}}">
+				<img src="{{track.album.images[0].url}}">
 				<p class="fav-name">{{track.name}}</p>
 
 			</div>

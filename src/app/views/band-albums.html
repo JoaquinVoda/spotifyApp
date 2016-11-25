@@ -1,43 +1,48 @@
 <div class="container">
-	<div class="row">
-		<div class="column full">		
 
-		    <header class="header-logo">
+	<div class="row">		
 
-		     		<img class="logo" src="/app/Spotify_logo_without_text.png" height="70" width="70" ng-click="bandCtrl.goToHome()">
-		            <div class="barra">
-		            
-			            <input type="text" class="inpsearch" placeholder="Type an Artist Name.." ng-model="bandCtrl.search" />
-			            <button class="btnsearch" ng-Click="bandCtrl.getArtists(bandCtrl.search)">Search</button>
-		            	
-		            </div>
-		            
-		    </header>
+		<header class="header-logo">
 
-		</div>
-	  </div>
-		
-	<div class="row">
-
-		<div class="column full">
-
-			<img src="{{bandCtrl.artist.images[0].url}}" height="200" width="200" alt="">
+			<img class="logo" src="/app/Spotify_logo_without_text.png" height="70" width="70" ng-click="bandCtrl.goToHome()">
 			
-			<h1> {{bandCtrl.artist.name}} - Albums</h1>
-			
-		</div>	
-		
+			<div class="input">
+
+				<input type="text" class="inpsearch" placeholder="Type an Artist Name.." ng-model="bandCtrl.search" />
+				<button class="btnsearch" ng-Click="bandCtrl.getArtists(bandCtrl.search)">Search</button>
+
+			</div>
+
+		</header>
+
 	</div>
 
-	<div class="row">
-		
-		<div class="column third band-album" ng-repeat="item in bandCtrl.albums" ng-Click="bandCtrl.goToTracks(item)">
+	<div class="column">
 
-			<p>{{item.name}}</p>
-			<img src="{{item.images[0].url}}" height="100" width="100" alt="" />
+		
+
+		<div class="row">
+
+			<div class="desc">
+
+				<img src="{{bandCtrl.artist.images[0].url}}" height="200" width="200" alt="">
+				
+				<h1> {{bandCtrl.artist.name}} - Albums</h1>
+				
+			</div>	
+			
+		</div>
+
+		<div class="row items">
+			
+			<div class="item" ng-repeat="item in bandCtrl.albums" ng-Click="bandCtrl.goToTracks(item)">
+				<img src="{{item.images[0].url}}" alt="" />
+				<p>{{item.name}}</p>
+				
+
+			</div>
 
 		</div>
-			
-	</div>
 	
+	</div>
 </div>
